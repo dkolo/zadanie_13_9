@@ -13,6 +13,14 @@ exports.upload = function(request, response) {
     });
 }
 
+exports.show = function(request, response) {
+    fs.readFile("test.png", "binary", function(error, file) {
+        response.writeHead(200, {"Content-Type": "image/png"});
+        response.write(file, "binary");
+        response.end();
+    });
+}
+
 exports.welcome = function(request, response) {
     console.log("Rozpoczynam obsługę żądania welcome.");
     fs.readFile('templates/start.html', function(err, html) {

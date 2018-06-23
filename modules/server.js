@@ -1,7 +1,7 @@
 var http = require('http');
 var colors = require('colors');
 
-var handlers = require('./handlers'); // nasz moduł
+var handlers = require('../handlers'); // nasz moduł
 
 function start() {
     function onRequest(request, response) {
@@ -17,6 +17,9 @@ function start() {
                 break;
             case '/upload':
                 handlers.upload(request, response);
+                break;
+            case '/show':
+                handlers.show(request, response);
                 break;
             default:
                 handlers.error(request, response);
